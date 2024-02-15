@@ -1,0 +1,67 @@
+---
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+---
+
+<div class="Astronav">
+  <Astronav>
+    <div class="flex justify-between w-full">
+    <div class="flex content-center">
+        <img src="logoDupom.svg" width="32px" height="32px" alt="LOGO DUPOM" />
+        <a>DUPOM</a>
+    </div>
+      <MenuIcon class="w-5 h-5 text-white" />
+    </div>
+    <MenuItems class="hidden lg:flex">
+      <div class="MenuItems">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+    </MenuItems>
+  </Astronav>
+</div>
+
+<style>
+  .hidden {
+    display: none;
+  }
+  .Astronav {
+    color: white;
+    padding: 5px 20px;
+    height: 60px;
+    box-shadow: 0 0 10px 0 rgba(224, 224, 224, 0.1);
+    display: flex;
+    align-items: center;
+  }
+  .Astronav a {
+    color: white;
+    font-size: 20px;
+  }
+
+  .MenuItems {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    padding: 5px 20px;
+    width: 100%;
+    display: flex;
+    box-shadow: 0 0 10px 0 rgba(224, 224, 224, 0.1);
+  }
+
+  .MenuItems ul {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+  }
+
+  .MenuItems ul li {
+    padding: 10px;
+  }
+
+  .MenuItems ul li:hover {
+    color: #f1f1f1;
+  }
+</style>

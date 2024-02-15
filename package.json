@@ -1,0 +1,19 @@
+{
+  "name": "extra-event",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.3.6",
+    "astro-navbar": "^2.3.1",
+    "solid-js": "^1.8.14",
+    "tailwindcss": "^3.4.1"
+  }
+}

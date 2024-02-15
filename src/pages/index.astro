@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Navbar.astro';
+import Navbar from '../components/Navbar.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Home">
+	<Navbar/>
+	<main>
+		<Header/>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		width: 90%;
+	}
+	h1 {
+		font-size: 2.5rem;
+	}
+</style>
