@@ -1,67 +1,71 @@
----
-import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
----
-
-<div class="Astronav">
-  <Astronav>
-    <div class="flex justify-between w-full">
-    <div class="flex content-center">
-        <img src="logoDupom.svg" width="32px" height="32px" alt="LOGO DUPOM" />
-        <a>DUPOM</a>
+<nav class="bg-[#02000A] border-gray-200 dark:bg-gray-900 shadow-white">
+  <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="/logoDupom.svg" class="h-8" alt="Dupom Logo" />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-300 ">DUPOM</span>
+    </a>
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+        <li>
+          <a href="#" class="block py-2 px-3 text-gray-300 rounded md:bg-transparent md:p-0 md:hover:text-orange-500" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:p-0">About</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:p-0">Services</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:p-0">Pricing</a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:p-0">Contact</a>
+        </li>
+      </ul>
     </div>
-      <MenuIcon class="w-5 h-5 text-white" />
-    </div>
-    <MenuItems class="hidden lg:flex">
-      <div class="MenuItems">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Blog</li>
-        </ul>
-      </div>
-    </MenuItems>
-  </Astronav>
-</div>
+  </div>
+</nav>
 
-<style>
-  .hidden {
-    display: none;
-  }
-  .Astronav {
-    color: white;
-    padding: 5px 20px;
-    height: 60px;
-    box-shadow: 0 0 10px 0 rgba(224, 224, 224, 0.1);
-    display: flex;
-    align-items: center;
-  }
-  .Astronav a {
-    color: white;
-    font-size: 20px;
-  }
 
-  .MenuItems {
-    position: absolute;
-    top: 60px;
-    left: 0px;
-    padding: 5px 20px;
-    width: 100%;
-    display: flex;
-    box-shadow: 0 0 10px 0 rgba(224, 224, 224, 0.1);
-  }
 
-  .MenuItems ul {
-    display: flex;
-    list-style: none;
-    flex-direction: column;
-  }
+<script>
+  // set the target element that will be collapsed or expanded (eg. navbar menu)
+const $targetEl = document.getElementById('targetEl');
 
-  .MenuItems ul li {
-    padding: 10px;
-  }
+// optionally set a trigger element (eg. a button, hamburger icon)
+const $triggerEl = document.getElementById('triggerEl');
 
-  .MenuItems ul li:hover {
-    color: #f1f1f1;
-  }
-</style>
+// optional options with default values and callback functions
+const options = {
+    onCollapse: () => {
+        console.log('element has been collapsed');
+    },
+    onExpand: () => {
+        console.log('element has been expanded');
+    },
+    onToggle: () => {
+        console.log('element has been toggled');
+    },
+};
+
+const instanceOptions = {
+  id: 'targetEl',
+  override: true
+};
+
+
+import { Collapse } from 'flowbite';
+
+/*
+ * $targetEl: required
+ * $triggerEl: optional
+ * options: optional
+ */
+const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
+</script>
